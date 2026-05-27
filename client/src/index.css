@@ -1,0 +1,188 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --sage:    #7a9e7e;
+  --sage-lt: #c4d9c5;
+  --cream:   #faf7f2;
+  --sand:    #e8e0d4;
+  --ink:     #2a2420;
+  --warm:    #c4773a;
+  --warm-lt: #f5e6d8;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  font-size: 1rem;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h2 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -.01em;
+  margin-bottom: 1rem;
+}
+
+.section-label {
+  font-size: .72rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--warm);
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+/* ── TAGS ── */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+}
+
+.tag {
+  background: var(--warm-lt);
+  color: var(--warm);
+  border-radius: 100px;
+  padding: .25rem .75rem;
+  font-size: .8rem;
+}
+
+.tag.sage { background: #e4f0e5; color: #4a7e4e; }
+.tag.flag { background: #fdecea; color: #b0413e; }
+
+/* ── POSE CARD HEADER ── */
+.pose-card-header {
+  background: var(--sage);
+  padding: 1.4rem 1.5rem 1.2rem;
+  color: white;
+}
+
+.pose-card-header .pose-name {
+  font-family: 'Fraunces', serif;
+  font-size: 1.7rem;
+  font-weight: 700;
+  letter-spacing: -.01em;
+}
+
+.pose-card-header .pose-sanskrit {
+  font-style: italic;
+  opacity: .75;
+  font-size: .9rem;
+  margin-top: .15rem;
+}
+
+.pose-flag {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  background: rgba(255,255,255,.2);
+  border-radius: 100px;
+  padding: .25rem .75rem;
+  font-size: .75rem;
+  margin-top: .8rem;
+}
+
+/* ── CONNECTION CARDS ── */
+.connections { display: flex; flex-direction: column; gap: .6rem; }
+
+.connection {
+  display: flex;
+  align-items: flex-start;
+  gap: .8rem;
+  padding: .75rem 1rem;
+  background: var(--cream);
+  border-radius: 12px;
+  font-size: .88rem;
+  cursor: pointer;
+  transition: background .15s;
+  border: none;
+  width: 100%;
+  text-align: left;
+}
+
+.connection:hover, .connection.active { background: var(--sand); }
+
+.conn-icon { font-size: 1rem; flex-shrink: 0; margin-top: .05rem; }
+
+.conn-name {
+  font-weight: 500;
+  font-family: 'Fraunces', serif;
+  font-size: .95rem;
+}
+
+.conn-why { color: #7a6e65; font-size: .8rem; margin-top: .1rem; }
+
+/* ── DETAIL PANEL ── */
+.detail-panel {
+  margin-top: 1.5rem;
+  background: var(--warm-lt);
+  border-radius: 16px;
+  padding: 1.2rem 1.4rem;
+  border-left: 3px solid var(--warm);
+}
+
+.detail-panel .detail-name {
+  font-family: 'Fraunces', serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: .4rem;
+}
+
+.detail-panel .detail-explanation {
+  font-size: .92rem;
+  color: #5a4a3f;
+  line-height: 1.65;
+}
+
+/* ── IMAGE REVEAL ── */
+.pose-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: .5rem;
+}
+
+.pose-img-wrap img { width: 100%; height: 100%; object-fit: contain; }
+
+.eye-btn {
+  position: absolute;
+  bottom: .5rem;
+  right: .5rem;
+  background: rgba(255,255,255,.85);
+  border: 1px solid var(--sand);
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: .9rem;
+}
+
+/* ── LOADING / ERROR ── */
+.loading {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a09890;
+  font-family: 'Fraunces', serif;
+  font-size: 1.2rem;
+  font-style: italic;
+}
+
+/* ── TABLET+ ── */
+@media (min-width: 640px) {
+  section { padding: 5rem 2.5rem; }
+}

@@ -1,0 +1,108 @@
+.home {
+  min-height: 100svh;
+}
+
+/* ── HEADER ── */
+.home-header {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 3rem 1.5rem 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.home-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 110% 10%, rgba(122,158,126,.3) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at -10% 90%, rgba(196,119,58,.2) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+.home-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  background: rgba(196,119,58,.25);
+  color: var(--warm-lt);
+  border-radius: 100px;
+  padding: .3rem .85rem;
+  font-size: .75rem;
+  font-weight: 500;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+}
+
+.home-header h1 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2rem, 7vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -.02em;
+  margin-bottom: .6rem;
+  color: white;
+}
+
+.home-header p {
+  font-size: 1rem;
+  color: #c4bab4;
+  max-width: 34ch;
+}
+
+.home-header p em {
+  font-style: italic;
+  color: var(--sage-lt);
+}
+
+/* ── GRID ── */
+.home-grid-section {
+  padding: 2rem 1.5rem 4rem;
+}
+
+.home-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .75rem;
+  margin-top: 1rem;
+}
+
+.pose-tile {
+  background: white;
+  border: 1.5px solid var(--sand);
+  border-radius: 16px;
+  padding: 1.1rem 1rem;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color .15s, box-shadow .15s, transform .15s;
+  width: 100%;
+}
+
+.pose-tile:hover {
+  border-color: var(--sage);
+  box-shadow: 0 4px 16px rgba(42,36,32,.08);
+  transform: translateY(-2px);
+}
+
+.pose-tile-name {
+  font-family: 'Fraunces', serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: .2rem;
+}
+
+.pose-tile-sanskrit {
+  font-size: .75rem;
+  color: #9a8e85;
+  font-style: italic;
+}
+
+/* ── TABLET+ ── */
+@media (min-width: 640px) {
+  .home-grid { grid-template-columns: repeat(3, 1fr); }
+  .home-grid-section { padding: 2.5rem 2.5rem 5rem; }
+  .home-header { padding: 4rem 2.5rem 3rem; }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "pose-navigator",
+  "version": "1.0.0",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.106.1"
+  }
+}
