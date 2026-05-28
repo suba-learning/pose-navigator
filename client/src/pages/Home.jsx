@@ -25,6 +25,7 @@ export default function Home() {
 
       <main className="home-grid-section">
         <div className="section-label">All poses</div>
+        <p className="grid-hint">Tap any pose to explore its connections</p>
         <div className="home-grid">
           {poses.map(pose => (
             <button
@@ -41,6 +42,7 @@ export default function Home() {
                   ))}
                 </div>
               )}
+              <div className="pose-tile-arrow">→</div>
             </button>
           ))}
         </div>

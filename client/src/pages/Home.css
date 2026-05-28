@@ -62,6 +62,12 @@
   padding: 2rem 1.5rem 4rem;
 }
 
+.grid-hint {
+  font-size: .8rem;
+  color: #9a8e85;
+  margin: .2rem 0 1rem;
+}
+
 .home-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -98,6 +104,18 @@
   font-size: .75rem;
   color: #9a8e85;
   font-style: italic;
+}
+
+.pose-tile-arrow {
+  margin-top: .75rem;
+  font-size: .8rem;
+  color: var(--warm);
+  text-align: right;
+  transition: transform .15s;
+}
+
+.pose-tile:hover .pose-tile-arrow {
+  transform: translateX(3px);
 }
 
 /* ── TABLET+ ── */
