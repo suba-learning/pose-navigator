@@ -119,8 +119,11 @@ export default function PoseNavigator() {
         )}
       </div>
 
-      {/* Divider with arrows */}
-      <div className="nav-divider">↕</div>
+      {/* Scroll cue */}
+      <div className="nav-divider">
+        <span className="nav-divider-arrow">↓</span>
+        <span className="nav-divider-label">connections</span>
+      </div>
 
       {/* Column headers */}
       <div className="nav-col-headers">
