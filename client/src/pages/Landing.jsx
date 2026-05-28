@@ -63,11 +63,8 @@ export default function Landing() {
       <section className="story">
         <div className="section-label">Why this exists</div>
         <p className="story-text">
-          She and her husband started yoga at the same time. He chased the destination —
-          the full pose, the next challenge. She was drawn to the <strong>journey.</strong>
-          <br /><br />
-          Years later, four different teachers noticed something unprompted.
-          Not that she was advanced. That her practice <strong>looked right.</strong>
+          One of us was drawn to the destination — the next challenge, the advanced pose.
+          The other kept asking the question underneath: <em>what does the body actually need to get there?</em>
           <br /><br />
           She didn't set out to build an app. She set out to practice well.
           Then she looked around and realized what had guided her didn't exist anywhere in a form others could use.
