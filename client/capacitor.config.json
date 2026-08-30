@@ -5,12 +5,5 @@
   "ios": {
     "contentInset": "always",
     "backgroundColor": "#faf7f2"
-  },
-  "plugins": {
-    "SplashScreen": {
-      "launchShowDuration": 1200,
-      "backgroundColor": "#faf7f2",
-      "showSpinner": false
-    }
   }
 }
