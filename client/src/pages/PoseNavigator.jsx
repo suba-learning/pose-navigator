@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import './PoseNavigator.css';
-import { api } from '../config';
+import { cachedDetail, fetchDetail } from '../lib/graphCache';
+import { isSaved, toggleSaved } from '../lib/saved';
+import { tap } from '../lib/haptics';
 
 const COLUMN_CONFIG = [
   { key: 'prepares',    label: 'Prepares You',  arrow: '↑', color: 'sage' },
@@ -56,16 +58,30 @@ export default function PoseNavigator() {
   const [loading, setLoading] = useState(true);
   const [selected, setSelected] = useState(null);
   const [centerImgVisible, setCenterImgVisible] = useState(true);
+  const [starred, setStarred] = useState(() => isSaved(id));
+
+  useEffect(() => { setStarred(isSaved(id)); }, [id]);
 
   useEffect(() => {
-    setLoading(true);
+    let alive = true;
     setSelected(null);
-    fetch(api(`/api/poses/${id}`))
-      .then(r => r.json())
-      .then(data => { setPose(data); setLoading(false); });
+
+    // Straight from the offline copy when we have it — no spinner, no wait.
+    const cached = cachedDetail(id);
+    if (cached) { setPose(cached); setLoading(false); } else { setLoading(true); }
+
+    fetchDetail(id)
+      .then(data => { if (alive) { setPose(data); setLoading(false); } })
+      .catch(() => {
+        // Offline: the cached copy stands. Only surface an error if we had none.
+        if (alive && !cached) setLoading(false);
+      });
+
+    return () => { alive = false; };
   }, [id]);
 
   function handleSelect(relPose) {
+    tap('Light');
     if (selected?.pose.id === relPose.id) {
       setSelected(null);
     } else {
@@ -92,6 +108,13 @@ export default function PoseNavigator() {
 
       {/* Center pose card */}
       <div className="center-card">
+        <button
+          className={`center-star ${starred ? 'on' : ''}`}
+          onClick={() => { tap('Medium'); toggleSaved(id); setStarred(isSaved(id)); }}
+          aria-label={starred ? 'Remove from saved' : 'Save pose'}
+        >
+          {starred ? '★' : '☆'}
+        </button>
         <div className="center-card-label">YOU ARE HERE</div>
         <h1 className="center-card-name">{pose.name}</h1>
         <div className="center-card-sanskrit">{pose.sanskrit}</div>
@@ -163,7 +186,7 @@ export default function PoseNavigator() {
               <span className="detail-name">{selected.pose.name}</span>
               <button
                 className="detail-navigate-btn"
-                onClick={() => navigate(`/poses/${selected.pose.id}`)}
+                onClick={() => { tap('Medium'); navigate(`/poses/${selected.pose.id}`); }}
               >
                 Navigate to this pose →
               </button>

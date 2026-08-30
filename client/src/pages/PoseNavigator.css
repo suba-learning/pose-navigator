@@ -311,3 +311,21 @@
   .center-img-wrap   { height: 220px; }
   .detail-panel      { padding: 0 2rem 1.5rem; }
 }
+
+/* ── SAVE STAR on the centre card ───────────────────────────────────── */
+.center-card { position: relative; }
+
+.center-star {
+  position: absolute;
+  top: .6rem; right: .7rem;
+  width: 2.4rem; height: 2.4rem;
+  display: inline-flex;
+  align-items: center; justify-content: center;
+  font-size: 1.35rem;
+  line-height: 1;
+  background: none;
+  border: 0;
+  color: #c3b8ac;
+  cursor: pointer;
+}
+.center-star.on { color: var(--warm); }

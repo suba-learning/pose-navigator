@@ -124,3 +124,112 @@
   .home-grid-section { padding: 2.5rem 2.5rem 5rem; }
   .home-header { padding: 4rem 2.5rem 3rem; }
 }
+
+/* ── SEARCH ─────────────────────────────────────────────────────────── */
+.search-wrap { position: relative; margin-bottom: .9rem; }
+
+.search-input {
+  width: 100%;
+  font-family: inherit;
+  font-size: 1rem;                 /* 16px — anything smaller makes iOS zoom on focus */
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--sand);
+  border-radius: 12px;
+  padding: .8rem 2.2rem .8rem .95rem;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.search-input::placeholder { color: #a99f96; }
+.search-input:focus {
+  outline: none;
+  border-color: var(--sage);
+  box-shadow: 0 0 0 3px rgba(122,158,126,.18);
+}
+.search-input::-webkit-search-cancel-button { display: none; }
+
+.search-clear {
+  position: absolute;
+  right: .5rem; top: 50%;
+  transform: translateY(-50%);
+  width: 1.75rem; height: 1.75rem;
+  border: 0; border-radius: 50%;
+  background: var(--sand); color: var(--ink);
+  font-size: 1.1rem; line-height: 1;
+  cursor: pointer;
+}
+
+/* ── FILTER CHIPS ───────────────────────────────────────────────────── */
+.filter-row {
+  display: flex;
+  gap: .45rem;
+  overflow-x: auto;
+  padding-bottom: .5rem;
+  margin-bottom: .6rem;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.filter-row::-webkit-scrollbar { display: none; }
+
+.filter-chip {
+  flex: 0 0 auto;
+  font-family: inherit;
+  font-size: .78rem;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--sand);
+  border-radius: 100px;
+  padding: .38rem .8rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.filter-chip.active {
+  background: var(--sage);
+  border-color: var(--sage);
+  color: #fff;
+}
+
+/* ── STAR ───────────────────────────────────────────────────────────── */
+.pose-tile { position: relative; }
+
+.star-btn {
+  position: absolute;
+  top: .45rem; right: .5rem;
+  display: inline-flex;
+  align-items: center; justify-content: center;
+  width: 2rem; height: 2rem;       /* generous tap target */
+  font-size: 1.05rem;
+  line-height: 1;
+  color: #c3b8ac;
+  cursor: pointer;
+  z-index: 2;
+}
+.star-btn.on { color: var(--warm); }
+
+/* ── EMPTY / SYNC ───────────────────────────────────────────────────── */
+.empty-state {
+  padding: 2.5rem 1rem;
+  text-align: center;
+  color: #8b8179;
+  font-size: .92rem;
+}
+
+.loading-sub {
+  display: block;
+  margin-top: .5rem;
+  font-size: .85rem;
+  color: #8b8179;
+}
+
+.sync-bar {
+  position: fixed;
+  left: 0; right: 0;
+  bottom: env(safe-area-inset-bottom, 0);
+  background: var(--ink);
+  color: var(--cream);
+  font-size: .78rem;
+  letter-spacing: .03em;
+  text-align: center;
+  padding: .5rem;
+  z-index: 40;
+}
