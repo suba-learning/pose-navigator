@@ -186,3 +186,33 @@ h2 {
 @media (min-width: 640px) {
   section { padding: 5rem 2.5rem; }
 }
+
+/* ── Native iOS adjustments ──────────────────────────────────────────────
+   Only apply inside the Capacitor app (body gets .native from main.jsx via
+   the html[data-native] attribute set below). Keeps web rendering identical. */
+
+html[data-native="true"] body {
+  /* Respect the notch / home indicator instead of drawing underneath them. */
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+
+  /* No rubber-band overscroll or text-size autofix — those read as "website". */
+  overscroll-behavior-y: none;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* No blue tap flash on buttons and cards. */
+html[data-native="true"] * {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Long-press on a pose card shouldn't offer "Copy / Look Up" like a webpage. */
+html[data-native="true"] .pose-tile,
+html[data-native="true"] .rel-card,
+html[data-native="true"] .eye-btn {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}

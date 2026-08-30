@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Home.css';
+import { api } from '../config';
 
 export default function Home() {
   const [poses, setPoses] = useState([]);
@@ -8,7 +9,7 @@ export default function Home() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('/api/poses')
+    fetch(api('/api/poses'))
       .then(r => r.json())
       .then(data => { setPoses(data); setLoading(false); });
   }, []);

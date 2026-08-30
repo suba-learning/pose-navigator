@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import './PoseNavigator.css';
+import { api } from '../config';
 
 const COLUMN_CONFIG = [
   { key: 'prepares',    label: 'Prepares You',  arrow: '↑', color: 'sage' },
@@ -59,7 +60,7 @@ export default function PoseNavigator() {
   useEffect(() => {
     setLoading(true);
     setSelected(null);
-    fetch(`/api/poses/${id}`)
+    fetch(api(`/api/poses/${id}`))
       .then(r => r.json())
       .then(data => { setPose(data); setLoading(false); });
   }, [id]);
