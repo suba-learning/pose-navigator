@@ -13,7 +13,7 @@
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
   background: var(--cream);
   color: var(--ink);
   font-size: 1rem;
@@ -22,7 +22,7 @@ body {
 }
 
 h2 {
-  font-family: 'Fraunces', serif;
+  font-family: 'Fraunces Variable', 'Fraunces', Georgia, serif;
   font-size: clamp(1.8rem, 5vw, 2.6rem);
   font-weight: 500;
   line-height: 1.2;
@@ -65,7 +65,7 @@ h2 {
 }
 
 .pose-card-header .pose-name {
-  font-family: 'Fraunces', serif;
+  font-family: 'Fraunces Variable', 'Fraunces', Georgia, serif;
   font-size: 1.7rem;
   font-weight: 700;
   letter-spacing: -.01em;
@@ -113,7 +113,7 @@ h2 {
 
 .conn-name {
   font-weight: 500;
-  font-family: 'Fraunces', serif;
+  font-family: 'Fraunces Variable', 'Fraunces', Georgia, serif;
   font-size: .95rem;
 }
 
@@ -129,7 +129,7 @@ h2 {
 }
 
 .detail-panel .detail-name {
-  font-family: 'Fraunces', serif;
+  font-family: 'Fraunces Variable', 'Fraunces', Georgia, serif;
   font-size: 1.1rem;
   font-weight: 500;
   margin-bottom: .4rem;
@@ -177,7 +177,7 @@ h2 {
   align-items: center;
   justify-content: center;
   color: #a09890;
-  font-family: 'Fraunces', serif;
+  font-family: 'Fraunces Variable', 'Fraunces', Georgia, serif;
   font-size: 1.2rem;
   font-style: italic;
 }

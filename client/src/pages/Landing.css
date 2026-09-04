@@ -44,7 +44,7 @@
 .badge::before { content: '✦'; font-size: .65rem; }
 
 .hero h1 {
-  font-family: 'Fraunces', serif;
+  font-family: 'Fraunces Variable', 'Fraunces', Georgia, serif;
   font-size: clamp(2.4rem, 8vw, 4.2rem);
   font-weight: 700;
   line-height: 1.1;
@@ -79,7 +79,7 @@
   cursor: pointer;
   transition: transform .18s, background .18s;
   width: fit-content;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
 }
 
 .cta:hover { background: var(--warm); transform: translateY(-2px); }
@@ -184,13 +184,13 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Fraunces', serif;
+  font-family: 'Fraunces Variable', 'Fraunces', Georgia, serif;
   font-size: 1.05rem;
   font-weight: 700;
 }
 
 .step-body h3 {
-  font-family: 'Fraunces', serif;
+  font-family: 'Fraunces Variable', 'Fraunces', Georgia, serif;
   font-size: 1.1rem;
   font-weight: 500;
   margin-bottom: .25rem;
@@ -202,7 +202,7 @@ section {
 .story { background: var(--warm-lt); }
 
 .story-text {
-  font-family: 'Fraunces', serif;
+  font-family: 'Fraunces Variable', 'Fraunces', Georgia, serif;
   font-size: 1.2rem;
   font-style: italic;
   font-weight: 300;
@@ -273,7 +273,7 @@ section {
   font-weight: 500;
   border: none;
   cursor: pointer;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
   transition: transform .18s, opacity .18s;
 }
 

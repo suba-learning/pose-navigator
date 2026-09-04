@@ -11,7 +11,7 @@
   background: none;
   border: none;
   color: var(--warm);
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
   font-size: .85rem;
   font-weight: 500;
   cursor: pointer;
@@ -40,7 +40,7 @@
 }
 
 .center-card-name {
-  font-family: 'Fraunces', serif;
+  font-family: 'Fraunces Variable', 'Fraunces', Georgia, serif;
   font-size: clamp(1.6rem, 5vw, 2.2rem);
   font-weight: 700;
   color: var(--ink);
@@ -189,7 +189,7 @@
 .rel-card-text { min-width: 0; }
 
 .rel-card-name {
-  font-family: 'Fraunces', serif;
+  font-family: 'Fraunces Variable', 'Fraunces', Georgia, serif;
   font-size: .88rem;
   font-weight: 500;
   color: var(--ink);
@@ -278,7 +278,7 @@
 }
 
 .detail-name {
-  font-family: 'Fraunces', serif;
+  font-family: 'Fraunces Variable', 'Fraunces', Georgia, serif;
   font-size: 1rem;
   font-weight: 500;
   color: var(--ink);
@@ -290,7 +290,7 @@
   font-size: .75rem;
   color: var(--warm);
   cursor: pointer;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
   white-space: nowrap;
   padding: 0;
 }
