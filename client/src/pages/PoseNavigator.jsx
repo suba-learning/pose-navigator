@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import './PoseNavigator.css';
-import { cachedDetail, fetchDetail } from '../lib/graphCache';
+import { cachedDetail, fetchDetail, rememberDetail } from '../lib/graphCache';
 import { isSaved, toggleSaved } from '../lib/saved';
 import { tap } from '../lib/haptics';
 
@@ -71,7 +71,10 @@ export default function PoseNavigator() {
     if (cached) { setPose(cached); setLoading(false); } else { setLoading(true); }
 
     fetchDetail(id)
-      .then(data => { if (alive) { setPose(data); setLoading(false); } })
+      .then(data => {
+        rememberDetail(id, data);
+        if (alive) { setPose(data); setLoading(false); }
+      })
       .catch(() => {
         // Offline: the cached copy stands. Only surface an error if we had none.
         if (alive && !cached) setLoading(false);

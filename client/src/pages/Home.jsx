@@ -5,6 +5,7 @@ import {
   cachedPoses, cacheInfo, fetchPoses, syncAll, cacheImages,
 } from '../lib/graphCache';
 import { getSaved, toggleSaved } from '../lib/saved';
+import { shouldPrefetchAll } from '../config';
 import { tap } from '../lib/haptics';
 
 export default function Home() {
@@ -39,7 +40,7 @@ export default function Home() {
       // 2. Warm the full graph in the background, so every pose's
       //    relationships are readable with no signal later.
       const info = cacheInfo();
-      if (!info.present || info.stale) {
+      if (shouldPrefetchAll() && (!info.present || info.stale)) {
         try {
           const { poses: all } = await syncAll({
             onProgress: (done, total) => alive && setSync({ done, total }),

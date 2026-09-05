@@ -73,6 +73,14 @@ async function getJSON(path) {
 export const fetchPoses = () => getJSON('/api/poses');
 export const fetchDetail = id => getJSON(`/api/poses/${id}`);
 
+// Store one pose's detail as the user visits it. Gives the web incremental
+// caching without the up-front burst of requests.
+export function rememberDetail(id, detail) {
+  const g = load() ?? { poses: [], details: {}, savedAt: 0 };
+  g.details = { ...g.details, [id]: detail };
+  persist(g);
+}
+
 /* ── Full sync ────────────────────────────────────────────────────────── */
 
 // Walk every pose and store its relationships. Runs a small pool rather than
